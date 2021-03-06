@@ -1,7 +1,7 @@
 package br.com.eduardotanaka.nexaas.di.module
 
-import br.com.eduardotanaka.nexaas.data.repository.RetrofitTesteRepository
-import br.com.eduardotanaka.nexaas.data.repository.RetrofitTesteRepositoryImpl
+import br.com.eduardotanaka.nexaas.data.repository.ProductRepository
+import br.com.eduardotanaka.nexaas.data.repository.ProductRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import javax.inject.Singleton
@@ -14,6 +14,6 @@ abstract class RepositoryModule {
 
     @Binds
     @Singleton
-    abstract fun bindRetrofitTesteRepository(retrofitTesteRepository: RetrofitTesteRepositoryImpl): RetrofitTesteRepository
+    abstract fun bindProductRepository(productRepository: ProductRepositoryImpl): ProductRepository
 
 }

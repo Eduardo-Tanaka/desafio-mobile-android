@@ -2,7 +2,7 @@ package br.com.eduardotanaka.nexaas.di.module
 
 import br.com.eduardotanaka.nexaas.BuildConfig
 import br.com.eduardotanaka.nexaas.network.HttpRequestInterceptor
-import br.com.eduardotanaka.nexaas.network.RetrofitTesteService
+import br.com.eduardotanaka.nexaas.network.ProductService
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -57,7 +57,7 @@ class NetworkModule {
     ): Retrofit {
         val retrofit = Retrofit.Builder()
             .client(okHttpClient)
-            .baseUrl(BuildConfig.RetrofitTesteUrl)
+            .baseUrl(BuildConfig.API_URL)
             .addConverterFactory(
                 GsonConverterFactory
                     .create(gson)
@@ -67,6 +67,6 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun provideRetrofitTesteService(retrofit: Retrofit): RetrofitTesteService =
-        retrofit.create(RetrofitTesteService::class.java)
+    fun provideRetrofitProduct(retrofit: Retrofit): ProductService =
+        retrofit.create(ProductService::class.java)
 }

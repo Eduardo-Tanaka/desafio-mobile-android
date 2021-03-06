@@ -18,8 +18,6 @@ class MainActivity : BaseActivity() {
         val view = binding.root
         setContentView(view)
 
-        binding.textView.text = "view binding"
-
         viewModel.getAll()
         viewModel.productList.observe(this, {
             if (it.state == StatefulResource.State.SUCCESS && it.hasData()) {

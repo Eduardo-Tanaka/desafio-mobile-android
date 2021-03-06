@@ -14,9 +14,31 @@ class DetailActivity : BaseActivity() {
     private lateinit var binding: ActivityDetailBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+        /*window.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
+
+        // Set up shared element transition and disable overlay so views don't show above system bars
+        setEnterSharedElementCallback(MaterialContainerTransformSharedElementCallback())
+
+        val transform = MaterialContainerTransform().apply {
+            addTarget(binding.image)
+            //drawingViewId = binding.teste.id
+            duration = 2500
+            pathMotion = MaterialArcMotion()
+            scrimColor = Color.TRANSPARENT
+        }
+
+        TransitionManager.beginDelayedTransition(binding.teste, transform)
+        window.sharedElementEnterTransition = transform*/
+
         binding = ActivityDetailBinding.inflate(layoutInflater)
         val view = binding.root
+        binding.image.transitionName = "image"
+        binding.title.transitionName = "title"
+        binding.subtitle.transitionName = "subtitle"
+        binding.price.transitionName = "price"
+
+        super.onCreate(savedInstanceState)
+
         setContentView(view)
 
         val homeIcon = resources.getDrawable(R.drawable.ic_close_24px)
@@ -27,8 +49,8 @@ class DetailActivity : BaseActivity() {
 
         binding.title.text = product?.name
         binding.subtitle.text = if (product?.stock!! > 0) "in stock" else "sold out"
-        binding.price.text = "$ ${String.format("%.2f", product?.price.div(100))}"
-        binding.description.text = product?.description
+        binding.price.text = "$ ${String.format("%.2f", product.price.div(100))}"
+        binding.description.text = product.description
 
         // create a ProgressDrawable object which we will show as placeholder
         val drawable = CircularProgressDrawable(this)

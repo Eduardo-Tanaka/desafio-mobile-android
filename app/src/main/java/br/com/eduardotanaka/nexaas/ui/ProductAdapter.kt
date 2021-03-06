@@ -3,8 +3,10 @@ package br.com.eduardotanaka.nexaas.ui
 import android.app.Activity
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ActivityOptionsCompat
+import androidx.core.util.Pair
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import br.com.eduardotanaka.nexaas.R
@@ -69,11 +71,32 @@ class ProductAdapter(
             rowView.price.text = "$ ${String.format("%.2f", this.product.price.div(100))}"
 
             rowView.rowProduct.setOnClickListener {
+                val pair1 = Pair.create<View, String>(rowView.image, "image")
+                val pair2 = Pair.create<View, String>(rowView.title, "title")
+                val pair3 = Pair.create<View, String>(rowView.subtitle, "subtitle")
+                val pair4 = Pair.create<View, String>(rowView.price, "price")
+
                 val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
                     context as Activity,
-                    rowView.rowProduct,
-                    "product_${product.name}"
+                    pair1, pair2, pair3, pair4
                 )
+
+                val options1 = ActivityOptionsCompat.makeClipRevealAnimation(
+                    rowView.rowProduct,
+                    rowView.rowProduct.measuredWidth,
+                    rowView.rowProduct.measuredHeight,
+                    rowView.rowProduct.measuredWidth,
+                    rowView.rowProduct.measuredHeight
+                )
+                val options2 = ActivityOptionsCompat.makeScaleUpAnimation(
+                    rowView.rowProduct,
+                    rowView.rowProduct.measuredWidth,
+                    rowView.rowProduct.measuredHeight,
+                    rowView.rowProduct.measuredWidth,
+                    rowView.rowProduct.measuredHeight
+                )
+                val options3 = ActivityOptionsCompat.makeBasic()
+
                 onItemSelectedListener?.onProductClicked(product, options)
             }
         }

@@ -19,7 +19,14 @@ class MainActivity : BaseActivity() {
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        /*window.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
+
+        // Set up shared element transition and disable overlay so views don't show above system bars
+        setExitSharedElementCallback(MaterialContainerTransformSharedElementCallback())
+        window.sharedElementsUseOverlay = false*/
+
         super.onCreate(savedInstanceState)
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
@@ -45,7 +52,7 @@ class MainActivity : BaseActivity() {
                 binding.shipping.text = String.format("%.2f", list.sumOf { it.shipping }.div(100))
                 binding.tax.text = String.format("%.2f", list.sumOf { it.tax }.div(100))
 
-                adapter?.onItemSelectedListener = object :
+                adapter.onItemSelectedListener = object :
                     ProductAdapter.OnItemSelectedListener {
                     override fun onProductClicked(
                         product: Product,

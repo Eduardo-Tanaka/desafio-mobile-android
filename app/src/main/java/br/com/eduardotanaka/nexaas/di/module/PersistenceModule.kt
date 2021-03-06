@@ -16,7 +16,7 @@ import javax.inject.Singleton
 class PersistenceModule {
 
     companion object {
-        private const val DATABASE_NAME = "database_name.db"
+        private const val DATABASE_NAME = "products.db"
     }
 
     @Singleton

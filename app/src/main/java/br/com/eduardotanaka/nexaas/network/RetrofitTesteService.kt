@@ -1,6 +1,5 @@
 package br.com.eduardotanaka.nexaas.network
 
-import br.com.eduardotanaka.nexaas.data.model.api.RetrofitTesteModel
 import retrofit2.Response
 import retrofit2.http.GET
 

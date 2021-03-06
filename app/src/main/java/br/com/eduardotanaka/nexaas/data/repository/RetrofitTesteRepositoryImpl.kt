@@ -2,9 +2,6 @@ package br.com.eduardotanaka.nexaas.data.repository
 
 import android.content.SharedPreferences
 import br.com.eduardotanaka.nexaas.constants.CacheKey
-import br.com.eduardotanaka.nexaas.data.model.api.RetrofitTesteModel
-import br.com.eduardotanaka.nexaas.data.model.api.RetrofitTesteResponse
-import br.com.eduardotanaka.nexaas.data.model.entity.RetrofitTeste
 import br.com.eduardotanaka.nexaas.data.repository.base.BaseRepository
 import br.com.eduardotanaka.nexaas.data.repository.base.Resource
 import br.com.eduardotanaka.nexaas.data.repository.helpers.DataFetchHelper

@@ -3,7 +3,6 @@ package br.com.eduardotanaka.nexaas.ui
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import br.com.eduardotanaka.nexaas.R
-import br.com.eduardotanaka.nexaas.data.model.entity.RetrofitTeste
 import br.com.eduardotanaka.nexaas.data.repository.RetrofitTesteRepository
 import br.com.eduardotanaka.nexaas.ui.base.BaseViewModel
 import br.com.eduardotanaka.nexaas.ui.base.StatefulResource

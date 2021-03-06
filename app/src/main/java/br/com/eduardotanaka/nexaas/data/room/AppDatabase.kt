@@ -3,7 +3,6 @@ package br.com.eduardotanaka.nexaas.data.room
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import br.com.eduardotanaka.nexaas.data.model.entity.RetrofitTeste
 import br.com.eduardotanaka.nexaas.data.room.converter.Converters
 import br.com.eduardotanaka.nexaas.data.room.dao.RetrofitTesteDao
 
